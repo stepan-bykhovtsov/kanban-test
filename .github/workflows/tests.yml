@@ -1,0 +1,19 @@
+name: Mock Tests
+
+# Запускаем при любом пуше и при создании/обновлении Pull Request
+on:
+  push:
+  pull_request:
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Скачиваем код репозитория на виртуальную машину GitHub
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Запускаем наш скрипт
+      - name: Run mock tests
+        run: ./test.sh
